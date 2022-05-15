@@ -11,20 +11,19 @@ namespace Clases
     {
         protected int calorias;
         protected bool conSal;
-        
+
+        public Comida(string nombre, int calorias, bool conSal, double precio, int cantidadStock, int cantidadAComprar)
+           : base(precio, cantidadStock, cantidadAComprar)
+        {
+            this.nombre = nombre;
+            this.calorias = calorias;
+            this.conSal = conSal;
+        }
 
         protected override Etamanio Tamanio
         {
             get { return new Etamanio(); }
-        }
-
-        public Comida(string nombre, int calorias, bool conSal, double precio, int cantidadStock, int cantidadAComprar)
-            :base(precio,cantidadStock,cantidadAComprar)
-        {
-            this.nombre = nombre; 
-            this.calorias = calorias;
-            this.conSal = conSal;
-        }
+        }      
         
         public override string Nombre
         {
@@ -44,10 +43,11 @@ namespace Clases
             get { return cantidadStock; }
             set { this.cantidadStock = value; }
         }
-        //public Etamanio SeleccionTamanio()
-        //{
-
-        //}
+        
+        /// <summary>
+        /// muestra los datos de la comida
+        /// </summary>
+        /// <returns></returns>
         public override string MostrarProducto()
         {
             StringBuilder sb = new StringBuilder();

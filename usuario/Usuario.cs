@@ -24,19 +24,16 @@ namespace Clases
             this.id = id;
         }
 
-        public Usuario(string nombre, string clave):this()
-        {
-            this.nombre=nombre;
-            this.clave=clave;
-        }
         public int Id
         {
             get { return id; }
         }
+
         public bool EsDuenio
         {
             get => esDuenio; set => esDuenio = value; 
         }
+
         public string Nombre
         {
             get => nombre; set => nombre = value; 
@@ -47,24 +44,21 @@ namespace Clases
             set => clave = value; 
         }
 
+        /// <summary>
+        /// evaluda que el string recivido como clave no sea nulo ni vacio
+        /// elimina los espacios antes y despues y evalua que se igual a la clave seteada para ese usuario
+        /// </summary>
+        /// <param name="clave"></param>
+        /// <returns></returns>
         public bool EsUsuarioValido(string clave)
         {
             return (!string.IsNullOrEmpty(clave) && clave.Trim() == this.clave.Trim());
         }
 
-        public Usuario RellenarUsuarioDuenio()
-        {
-            Usuario usuario = new Usuario(true, "Melanie", "12345", 1235);
-            return usuario;
-        }
-
-        public Usuario RellenarUsuarioEmp()
-        {
-            Usuario usuario = new Usuario(false, "Ernesto", "678910", 1238);
-
-            return usuario;
-        }
-
+        /// <summary>
+        /// crea los uduarios y los guarda en la lista recibida
+        /// </summary>
+        /// <param name="usuarios"></param>
         public static void CargarUsuarios(List<Usuario> usuarios)
         {
             Usuario usuario1 = new Usuario(false, "pepe", "peposo", 123);

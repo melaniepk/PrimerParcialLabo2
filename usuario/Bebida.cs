@@ -14,6 +14,12 @@ namespace Clases
     {
         protected bool tieneAlcohol;
 
+        public Bebida(string nombre, bool tieneAlcohol, double precio, int cantidadStock, int cantidadAComprar)
+           : base(precio, cantidadStock, cantidadAComprar)
+        {
+            this.nombre = nombre;
+            this.tieneAlcohol = tieneAlcohol;
+        }
         protected override Etamanio Tamanio
         {
             get { return new Etamanio(); }
@@ -41,13 +47,11 @@ namespace Clases
             get { return this.cantidadStock; }
             set { this.cantidadStock = value; }
         }
-        public Bebida(string nombre, bool tieneAlcohol,double precio, int cantidadStock, int cantidadAComprar)
-            :base(precio,cantidadStock,cantidadAComprar)
-        {
-            this.nombre = nombre;
-            this.tieneAlcohol = tieneAlcohol;
-        }
-
+       
+        /// <summary>
+        /// muestra los detalles de la bebida 
+        /// </summary>
+        /// <returns></returns>
         public override string MostrarProducto()
         {
             StringBuilder sb = new StringBuilder();

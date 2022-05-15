@@ -40,8 +40,7 @@ namespace Clases
         public abstract int CantidadAComprar
         {
             get;
-        }
-            
+        }           
 
         protected abstract Etamanio Tamanio
         {
@@ -54,11 +53,10 @@ namespace Clases
             set;
         }
 
-
-        protected virtual void AgregarStock()
-        {
-
-        }
+        /// <summary>
+        /// muestra los datos base del producto
+        /// </summary>
+        /// <returns></returns>
         public virtual string MostrarProducto()
         {
             StringBuilder sb = new StringBuilder();

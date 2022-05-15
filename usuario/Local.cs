@@ -20,6 +20,10 @@ namespace Clases
             CrearInventarioComida();
             CrearInventarioBebida();
         }
+
+        /// <summary>
+        /// crea las mesas 
+        /// </summary>
         public static void CrearMesas()
         {
             mesas = new Mesa[20];
@@ -45,6 +49,10 @@ namespace Clases
             mesas[19] = new Mesa(true, 20, true);
         }
 
+        /// <summary>
+        /// crea el inventario de comidas, agrega las comidas a la lista y devuelve la lista cargada
+        /// </summary>
+        /// <returns></returns>
         public static List<Comida> CrearInventarioComida()
         {
             inventarioComida = new List<Comida>();
@@ -66,6 +74,10 @@ namespace Clases
 
         }
 
+        /// <summary>
+        /// carga las bebidas creadas a la lista de inventario de bebidas y la devuelve
+        /// </summary>
+        /// <returns></returns>
         public static List<Bebida> CrearInventarioBebida()
         {
             inventarioBebida = new List<Bebida>();
@@ -83,126 +95,26 @@ namespace Clases
             inventarioBebida.Add(new Bebida("Gaseosa Sprite", false, 200, 30, 1));
             inventarioBebida.Add(new Bebida("Gaseosa Coca-Cola", false, 200, 30, 1));
             return inventarioBebida;
-        }
-
-
-
-
-        public static List<Menu> ActualizarInventario(List<Menu> prod)
-        {
-            return prod;
-        }
-        //public static void CargarComidas()
-        //{
-        //    comidas = new List<Comida>();
-        //    Comida comida1 = new Comida("Papas con Cheddar", 400, false, 500, 15, 1);
-        //    Comida comida2 = new Comida("Hamburguesa Especial", 800, true, 800, 15, 1);
-        //    Comida comida3 = new Comida("Hambuguesa Clasica", 850, true, 850, 15, 1);
-        //    Comida comida4 = new Comida("Nuggets de Pollo", 450, false, 560, 15, 1);
-        //    Comida comida5 = new Comida("Sticks de Muzzarella", 560, true, 600, 15, 1);
-        //    Comida comida6 = new Comida("Pizza individual Napolitana", 600, true, 700, 15, 1);
-        //    Comida comida7 = new Comida("Pizza individual Muzzarella", 550, true, 700, 15, 1);
-        //    Comida comida8 = new Comida("Nachos con cheddar", 360, true, 450, 15, 1);
-        //    Comida comida9 = new Comida("Ensalada Caesar", 280, false, 500, 15, 1);
-        //    Comida comida10 = new Comida("Ensalada Completa", 380, false, 600, 15, 1);
-        //    Comida comida11 = new Comida("Picada para 3", 1200, true, 1500, 15, 1);
-        //    Comida comida12 = new Comida("Brownie con Helado", 500, false, 500, 15, 1);
-
-        //    comidas.Add(comida1);
-        //    comidas.Add(comida2);
-        //    comidas.Add(comida3);
-        //    comidas.Add(comida4);
-        //    comidas.Add(comida5);
-        //    comidas.Add(comida6);
-        //    comidas.Add(comida7);
-        //    comidas.Add(comida8);
-        //    comidas.Add(comida9);
-        //    comidas.Add(comida10);
-        //    comidas.Add(comida11);
-        //    comidas.Add(comida12);
-
-        //}
-        //public static List<Bebida> CargarBebidas(List<Bebida> bebidas)
-        //{
-
-        //    Bebida bebida1 = new Bebida("Cerveza Honey", true, 300, 30, 1);
-        //    Bebida bebida2 = new Bebida("Cerveza IPA", true, 300, 30, 1);
-        //    Bebida bebida3 = new Bebida("Cerveza Brahma", true, 250, 30, 1);
-        //    Bebida bebida4 = new Bebida("Fernet", true, 400, 30, 1);
-        //    Bebida bebida5 = new Bebida("Gin tonic", true, 450, 30, 1);
-        //    Bebida bebida6 = new Bebida("Gancia", true, 350, 30, 1);
-        //    Bebida bebida7 = new Bebida("Margarita", true, 500, 30, 1);
-        //    Bebida bebida8 = new Bebida("Mojito", true, 300, 500, 1);
-        //    Bebida bebida9 = new Bebida("Caipirinha", true, 500, 30, 1);
-        //    Bebida bebida10 = new Bebida("Gaseosa Fanta", false, 200, 30, 1);
-        //    Bebida bebida11 = new Bebida("Gaseosa Sprite", false, 200, 30, 1);
-        //    Bebida bebida12 = new Bebida("Gaseosa Coca-Cola", false, 200, 30, 1);
-
-        //    bebidas.Add(bebida1);
-        //    bebidas.Add(bebida2);
-        //    bebidas.Add(bebida3);
-        //    bebidas.Add(bebida4);
-        //    bebidas.Add(bebida5);
-        //    bebidas.Add(bebida6);
-        //    bebidas.Add(bebida7);
-        //    bebidas.Add(bebida8);
-        //    bebidas.Add(bebida9);
-        //    bebidas.Add(bebida10);
-        //    bebidas.Add(bebida11);
-        //    bebidas.Add(bebida12);
-        //    return bebidas;
-
-
-        //}
-
-        //private static void InstanciarUsuarios()
-        //{
-        //    listaUsuarios = new List<Usuario>()
-        //    {
-        //        new Usuario(true,"Pepe Peposo","ruf123",1),
-        //        new Usuario(false,"Juana RoyalCanin","MadeINLanus",2),
-
-        //    };
-        //}
-
-        //public static Usuario LoguearUsuario(int idUser, string password)
-        //{
-        //    foreach (Usuario user in listaUsuarios)
-        //    {
-        //        if (user.Id == idUser && user.EsUsuarioValido(password))
-        //            return user;
-        //    }
-        //    return null;
-        //}
-
+        }   
+        
+        /// <summary>
+        /// evalua el estado de las mesas, seteando el bool en true si estan libres
+        /// y en false si estan ocupadas
+        /// </summary>
+        /// <returns></returns>
         public static Dictionary<int, bool> EstadoMesas()
         {
             Dictionary<int, bool> estadoMesas = new Dictionary<int, bool>();
 
             for (int i = 0; i < mesas.Length; i++)
             {
-                estadoMesas.Add(i + 1, mesas[i].estaLibre == true); // true si las mesas estan libres, false si estan desocupadas
+                estadoMesas.Add(i + 1, mesas[i].estaLibre == true);
             }
 
             return estadoMesas;
         }
 
-        public static string MostrarInformacionMesa(int idMesa)
-        {
-            Mesa auxMesa = null;
-            foreach (Mesa mesa in mesas)
-            {
-                if (mesa.numeroMesa == idMesa)
-                    auxMesa = mesa;
-            }
-
-            if (auxMesa is null)
-                return "mesa no encontrada";
-
-            return auxMesa.ToString();
-        }
-
-         
+       
         
 
     }
