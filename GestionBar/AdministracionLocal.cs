@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,26 +14,23 @@ namespace GestionBar
 {
     public partial class AdministracionLocal : Form
     {
-        private string usuarioN;
+        //private string usuarioN;
         private Usuario usuario;
-        public Mesa[] mesas;
-        public Mesa nuevaMesa;
+        Dictionary<int, Button> botones;
+        Dictionary<int, bool> disponibilidadMesas;
 
 
         public AdministracionLocal()
         {
-            
-            InitializeComponent();
-            mesas = new Mesa[20];
+
+            InitializeComponent();           
+            botones = new Dictionary<int, Button>();
+            CargarMesas();
+            playSimpleSound();
+
 
         }
 
-        public AdministracionLocal(Mesa mesa)
-        {
-            
-            nuevaMesa = mesa;
-            
-        }
         public AdministracionLocal(Usuario usuario):this()
         {
             this.usuario = usuario;
@@ -40,81 +38,67 @@ namespace GestionBar
             {
                 btnInventario.Enabled = false;
                 btnPersonal.Enabled = false;
-                this.BackColor = Color.PeachPuff;
+                this.BackColor = Color.DarkSlateBlue;
             }
             else
             {
                 btnInventario.Enabled = true;
                 btnPersonal.Enabled = true;
-                this.BackColor = Color.Thistle;
+                this.BackColor = System.Drawing.Color.FromArgb(39,39,79);
             }
-        }
-
-        public AdministracionLocal(string nombreUsuario) : this()
-        {
-            this.usuarioN = nombreUsuario;
-            lblBienvenida.Text = ($"Bienvenida/o {usuarioN}");
-           
+            lblBienvenida.Text = $"Bienvenido/a {usuario.Nombre.ToUpperInvariant()}";
         }
 
         private void AdministracionLocal_Load(object sender, EventArgs e)
         {
-            mesas[0] = new Mesa(1, true, usuario.Nombre.ToString(), 1,false);
-            mesas[1] = new Mesa(2, true, usuario.Nombre.ToString(), 2, false);
-            mesas[2] = new Mesa(3, true, usuario.Nombre.ToString(), 3, false);
-            mesas[3] = new Mesa(4, true, usuario.Nombre.ToString(), 4, false);
-            mesas[4] = new Mesa(5, true, usuario.Nombre.ToString(), 5, false);
-            mesas[5] = new Mesa(6, true, usuario.Nombre.ToString(), 6, false);
-            mesas[6] = new Mesa(7, true, usuario.Nombre.ToString(), 7, false);
-            mesas[7] = new Mesa(8, true, usuario.Nombre.ToString(), 8, false);
-            mesas[8] = new Mesa(9, true, usuario.Nombre.ToString(), 9, false);
-            mesas[9] = new Mesa(10, true, usuario.Nombre.ToString(), 10, false);
-            mesas[10] = new Mesa(11, true, usuario.Nombre.ToString(), 11, false);
-            mesas[11] = new Mesa(12, true, usuario.Nombre.ToString(), 12, false);
-            mesas[12] = new Mesa(13, true, usuario.Nombre.ToString(), 13, false);
-            mesas[13] = new Mesa(14, true, usuario.Nombre.ToString(), 14, false);
-            mesas[14] = new Mesa(15, true, usuario.Nombre.ToString(), 15, false);
-            mesas[15] = new Mesa(16, true, usuario.Nombre.ToString(), 16, false);
-            mesas[16] = new Mesa(17, true, usuario.Nombre.ToString(), 17, true);
-            mesas[17] = new Mesa(18, true, usuario.Nombre.ToString(), 18, true);
-            mesas[18] = new Mesa(19, true, usuario.Nombre.ToString(), 19, true);
-            mesas[19] = new Mesa(20, true, usuario.Nombre.ToString(), 20, true);
-            btnMesa1.BackColor = Color.SpringGreen;
-            btnMesa2.BackColor = Color.SpringGreen;
-            btnMesa3.BackColor = Color.SpringGreen;
-            btnMesa4.BackColor = Color.SpringGreen;
-            btnMesa5.BackColor = Color.SpringGreen;
-            btnMesa6.BackColor = Color.SpringGreen;
-            btnMesa7.BackColor = Color.SpringGreen;
-            btnMesa8.BackColor = Color.SpringGreen;
-            btnMesa9.BackColor = Color.SpringGreen;
-            btnMesa10.BackColor = Color.SpringGreen;
-            btnMesa11.BackColor = Color.SpringGreen;
-            btnMesa12.BackColor = Color.SpringGreen;
-            btnMesa13.BackColor = Color.SpringGreen;
-            btnMesa14.BackColor = Color.SpringGreen;
-            btnMesa15.BackColor = Color.SpringGreen;
-            btnBarra16.BackColor = Color.SpringGreen;
-            btnBarra17.BackColor = Color.SpringGreen;
-            btnBarra18.BackColor = Color.SpringGreen;
-            btnBarra19.BackColor = Color.SpringGreen;
-            btnBarra19.BackColor = Color.SpringGreen;
-            btnBarra20.BackColor = Color.SpringGreen;
+            ObtenerEstadoMesas();
+        }
 
-            
-            if (nuevaMesa != null && mesas != null)
-            {
-                for (int i = 0; i < mesas.Length; i++)
-                {
-                    if (mesas[i].numeroMesa == nuevaMesa.numeroMesa)
-                    {
-                        mesas[i] = nuevaMesa;
-                    }
-                }
-            }
+
+        private void CargarMesas()
+        {
+
+            botones.Add(1, this.btnMesa1);
+            botones.Add(2, this.btnMesa2);
+            botones.Add(3, this.btnMesa3);
+            botones.Add(4, this.btnMesa4);
+            botones.Add(5, this.btnMesa5);
+            botones.Add(6, this.btnMesa6);
+            botones.Add(7, this.btnMesa7);
+            botones.Add(8, this.btnMesa8);
+            botones.Add(9, this.btnMesa9);
+            botones.Add(10, this.btnMesa10);
+            botones.Add(11, this.btnMesa11);
+            botones.Add(12, this.btnMesa12);
+            botones.Add(13, this.btnMesa13);
+            botones.Add(14, this.btnMesa14);
+            botones.Add(15, this.btnMesa15);
+            botones.Add(16, this.btnBarra16);
+            botones.Add(17, this.btnBarra17);
+            botones.Add(18, this.btnBarra18);
+            botones.Add(19, this.btnBarra19);
+            botones.Add(20, this.btnBarra20);
 
         }
 
+        private void ObtenerEstadoMesas()
+        {
+            disponibilidadMesas = Local.EstadoMesas();
+
+            foreach (KeyValuePair<int, bool> mesa in disponibilidadMesas)
+            {
+                if (mesa.Value)
+                    botones[mesa.Key].BackColor = Color.Green;
+                else
+                    botones[mesa.Key].BackColor = Color.IndianRed;
+            }
+        }       
+
+        /// <summary>
+        /// pregunta y cierra el form en caso de respuesta positiva
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             string mensaje = "Seguro que desea salir?";
@@ -123,6 +107,7 @@ namespace GestionBar
             DialogResult result = MessageBox.Show(mensaje, titulo, buttons,MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                
                 this.Close();
             }
         }
@@ -132,24 +117,56 @@ namespace GestionBar
             Application.Exit();
         }
 
-        private void btnMesa1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// castea el sender a button, recorre los pares keyValue en botones y busca
+        /// coincidencia entre el boton auxiliar y el value del item.
+        /// en caso de exitir, abre y muestar el formulario de nueva venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMesa_Click(object sender, EventArgs e)
         {
-            MenuNuevaVenta frmMenu = new MenuNuevaVenta(mesas[0]);
-            frmMenu.Show();
-            //this.Hide();
-            mesas[0].estaLibre = false;
-            btnMesa1.BackColor = Color.Tomato;
+            Button auxBtn = (Button)sender;
+            foreach (KeyValuePair<int, Button> item in botones)
+            {
+                if (item.Value == auxBtn)
+                {
+                    MenuNuevaVenta frmMenu = new MenuNuevaVenta(item, usuario);
+                    frmMenu.ShowDialog();                   
+                }
+            }
+
+        }
+       
+        /// <summary>
+        /// Abre un formulario de inventario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            Inventario frmInventario = new Inventario();
+            frmInventario.Show();
         }
 
-        private void btnBarra16_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Abre un formulario de Personal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnPersonal_Click(object sender, EventArgs e)
         {
-            MenuNuevaVenta frmMenu = new MenuNuevaVenta(mesas[16]);
-            frmMenu.Show();
-            //this.Hide();
-            mesas[16].estaLibre =false;
-            mesas[16].esBarra = true;
-            btnBarra16.BackColor = Color.Tomato;
+            Personal frmPersonal = new Personal();  
+            frmPersonal.Show();
+        }
 
+        /// <summary>
+        /// reproduce un sonido 
+        /// </summary>
+        private void playSimpleSound()
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\mkale\source\repos\PrimerParcialLabo2\GestionBar\Properties\audioPopup.wav");
+            simpleSound.Play();
         }
     }
 }

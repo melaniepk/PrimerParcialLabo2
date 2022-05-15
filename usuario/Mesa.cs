@@ -10,9 +10,8 @@ namespace Clases
     {
         public List<Bebida> pedidoBeb;
         public List<Comida> pedidoCom;
-        public int id;
         public bool estaLibre;
-        public string vendedor;
+        public Usuario vendedor;
         public int numeroMesa;
         public bool esBarra;
         public double total;
@@ -21,11 +20,9 @@ namespace Clases
         {
 
         }
-        public Mesa(int id, bool estaLibre, string vendedor, int numeroMesa, bool esBarra)
+        public Mesa(bool estaLibre,int numeroMesa, bool esBarra)
         {
-            this.id = id;
             this.estaLibre = estaLibre;
-            this.vendedor = vendedor;
             this.numeroMesa = numeroMesa;
             this.esBarra = esBarra;
             pedidoCom = new List<Comida>();
@@ -33,10 +30,38 @@ namespace Clases
         }
 
 
-        public void AgregarPedido(Bebida bebida, Comida comida)
+        public void AgregarPedidoComi(Comida producto)
         {
-            this.pedidoBeb.Add(bebida);
-            this.pedidoCom.Add(comida);
+            this.pedidoCom.Add(producto);
         }
+        public void AgregarPedidoBebi(Bebida producto)
+        {
+            this.pedidoBeb.Add(producto);
+        }
+
+
+        public override string ToString()
+        {
+            string tipoMesa;
+            if (this.esBarra)
+            {
+                tipoMesa = "Barra";
+            }
+            else
+            {
+                tipoMesa = "Mesa";
+            }
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{tipoMesa} N° {this.numeroMesa}");
+
+            if (estaLibre)
+                sb.AppendLine("Mesa vacia");
+            else
+                sb.AppendLine($"Mesa ocupada.");
+
+            return sb.ToString();
+        }
+
     }
 }

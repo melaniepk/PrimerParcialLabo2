@@ -9,7 +9,6 @@ namespace Clases
     
     public class Comida: Menu
     {
-        protected string nombre;
         protected int calorias;
         protected bool conSal;
         
@@ -27,7 +26,7 @@ namespace Clases
             this.conSal = conSal;
         }
         
-        public string Nombre
+        public override string Nombre
         {
             get { return nombre; }
         }

@@ -12,7 +12,6 @@ namespace Clases
     //}
     public class Bebida:Menu
     {
-        protected string nombre;
         protected bool tieneAlcohol;
 
         protected override Etamanio Tamanio
@@ -20,11 +19,15 @@ namespace Clases
             get { return new Etamanio(); }
         }
 
-        public string Nombre
+        public override string Nombre
         {
             get { return nombre; }
         }
 
+        public bool TieneAlcohol
+        {
+            get { return tieneAlcohol;}
+        }
         public override int CantidadAComprar
         {
             get { return 1;}

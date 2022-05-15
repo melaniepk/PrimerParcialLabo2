@@ -58,160 +58,197 @@
             // 
             // pnlBase
             // 
+            this.pnlBase.BackColor = System.Drawing.Color.RosyBrown;
             this.pnlBase.Controls.Add(this.btnSalir);
             this.pnlBase.Controls.Add(this.btnPersonal);
             this.pnlBase.Controls.Add(this.btnInventario);
             this.pnlBase.Controls.Add(this.lblBienvenida);
             this.pnlBase.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlBase.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pnlBase.Location = new System.Drawing.Point(0, 0);
             this.pnlBase.Name = "pnlBase";
-            this.pnlBase.Size = new System.Drawing.Size(200, 450);
+            this.pnlBase.Size = new System.Drawing.Size(222, 450);
             this.pnlBase.TabIndex = 0;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(0, 190);
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSalir.Location = new System.Drawing.Point(12, 188);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(200, 54);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnPersonal
             // 
-            this.btnPersonal.Location = new System.Drawing.Point(0, 128);
+            this.btnPersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.btnPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPersonal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnPersonal.Location = new System.Drawing.Point(12, 128);
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.Size = new System.Drawing.Size(200, 54);
             this.btnPersonal.TabIndex = 2;
             this.btnPersonal.Text = "Personal";
-            this.btnPersonal.UseVisualStyleBackColor = true;
+            this.btnPersonal.UseVisualStyleBackColor = false;
+            this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
             // 
             // btnInventario
             // 
-            this.btnInventario.Location = new System.Drawing.Point(0, 68);
+            this.btnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnInventario.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnInventario.Location = new System.Drawing.Point(12, 68);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(200, 54);
             this.btnInventario.TabIndex = 1;
             this.btnInventario.Text = "Inventario";
-            this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.UseVisualStyleBackColor = false;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // lblBienvenida
             // 
             this.lblBienvenida.AutoSize = true;
             this.lblBienvenida.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblBienvenida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblBienvenida.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBienvenida.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBienvenida.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblBienvenida.Location = new System.Drawing.Point(0, 0);
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Padding = new System.Windows.Forms.Padding(0, 30, 158, 0);
-            this.lblBienvenida.Size = new System.Drawing.Size(158, 51);
+            this.lblBienvenida.Size = new System.Drawing.Size(189, 48);
             this.lblBienvenida.TabIndex = 0;
+            this.lblBienvenida.Text = "bla";
             this.lblBienvenida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnMesa1
             // 
-            this.btnMesa1.Location = new System.Drawing.Point(243, 34);
+            this.btnMesa1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa1.Location = new System.Drawing.Point(271, 38);
             this.btnMesa1.Name = "btnMesa1";
             this.btnMesa1.Size = new System.Drawing.Size(109, 69);
             this.btnMesa1.TabIndex = 1;
             this.btnMesa1.Text = "Mesa 1";
             this.btnMesa1.UseVisualStyleBackColor = true;
-            this.btnMesa1.Click += new System.EventHandler(this.btnMesa1_Click);
+            this.btnMesa1.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa2
             // 
-            this.btnMesa2.Location = new System.Drawing.Point(243, 109);
+            this.btnMesa2.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa2.Location = new System.Drawing.Point(271, 113);
             this.btnMesa2.Name = "btnMesa2";
             this.btnMesa2.Size = new System.Drawing.Size(109, 69);
             this.btnMesa2.TabIndex = 2;
             this.btnMesa2.Text = "Mesa 2";
             this.btnMesa2.UseVisualStyleBackColor = true;
+            this.btnMesa2.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa3
             // 
-            this.btnMesa3.Location = new System.Drawing.Point(243, 184);
+            this.btnMesa3.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa3.Location = new System.Drawing.Point(271, 188);
             this.btnMesa3.Name = "btnMesa3";
             this.btnMesa3.Size = new System.Drawing.Size(109, 69);
             this.btnMesa3.TabIndex = 3;
             this.btnMesa3.Text = "Mesa 3";
             this.btnMesa3.UseVisualStyleBackColor = true;
+            this.btnMesa3.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa4
             // 
-            this.btnMesa4.Location = new System.Drawing.Point(243, 259);
+            this.btnMesa4.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa4.Location = new System.Drawing.Point(271, 263);
             this.btnMesa4.Name = "btnMesa4";
             this.btnMesa4.Size = new System.Drawing.Size(109, 69);
             this.btnMesa4.TabIndex = 4;
             this.btnMesa4.Text = "Mesa 4";
             this.btnMesa4.UseVisualStyleBackColor = true;
+            this.btnMesa4.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa5
             // 
-            this.btnMesa5.Location = new System.Drawing.Point(243, 333);
+            this.btnMesa5.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa5.Location = new System.Drawing.Point(271, 337);
             this.btnMesa5.Name = "btnMesa5";
             this.btnMesa5.Size = new System.Drawing.Size(109, 69);
             this.btnMesa5.TabIndex = 5;
             this.btnMesa5.Text = "Mesa 5";
             this.btnMesa5.UseVisualStyleBackColor = true;
+            this.btnMesa5.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa6
             // 
-            this.btnMesa6.Location = new System.Drawing.Point(374, 34);
+            this.btnMesa6.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa6.Location = new System.Drawing.Point(402, 38);
             this.btnMesa6.Name = "btnMesa6";
             this.btnMesa6.Size = new System.Drawing.Size(109, 69);
             this.btnMesa6.TabIndex = 6;
             this.btnMesa6.Text = "Mesa 6";
             this.btnMesa6.UseVisualStyleBackColor = true;
+            this.btnMesa6.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa7
             // 
-            this.btnMesa7.Location = new System.Drawing.Point(374, 109);
+            this.btnMesa7.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa7.Location = new System.Drawing.Point(402, 113);
             this.btnMesa7.Name = "btnMesa7";
             this.btnMesa7.Size = new System.Drawing.Size(109, 69);
             this.btnMesa7.TabIndex = 7;
             this.btnMesa7.Text = "Mesa 7";
             this.btnMesa7.UseVisualStyleBackColor = true;
+            this.btnMesa7.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa8
             // 
-            this.btnMesa8.Location = new System.Drawing.Point(374, 184);
+            this.btnMesa8.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa8.Location = new System.Drawing.Point(402, 188);
             this.btnMesa8.Name = "btnMesa8";
             this.btnMesa8.Size = new System.Drawing.Size(109, 69);
             this.btnMesa8.TabIndex = 8;
             this.btnMesa8.Text = "Mesa 8";
             this.btnMesa8.UseVisualStyleBackColor = true;
+            this.btnMesa8.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa9
             // 
-            this.btnMesa9.Location = new System.Drawing.Point(374, 259);
+            this.btnMesa9.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa9.Location = new System.Drawing.Point(402, 263);
             this.btnMesa9.Name = "btnMesa9";
             this.btnMesa9.Size = new System.Drawing.Size(109, 69);
             this.btnMesa9.TabIndex = 9;
             this.btnMesa9.Text = "Mesa 9";
             this.btnMesa9.UseVisualStyleBackColor = true;
+            this.btnMesa9.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa10
             // 
-            this.btnMesa10.Location = new System.Drawing.Point(374, 333);
+            this.btnMesa10.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa10.Location = new System.Drawing.Point(402, 337);
             this.btnMesa10.Name = "btnMesa10";
             this.btnMesa10.Size = new System.Drawing.Size(109, 69);
             this.btnMesa10.TabIndex = 10;
             this.btnMesa10.Text = "Mesa 10";
             this.btnMesa10.UseVisualStyleBackColor = true;
+            this.btnMesa10.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa11
             // 
-            this.btnMesa11.Location = new System.Drawing.Point(505, 34);
+            this.btnMesa11.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa11.Location = new System.Drawing.Point(533, 38);
             this.btnMesa11.Name = "btnMesa11";
             this.btnMesa11.Size = new System.Drawing.Size(109, 69);
             this.btnMesa11.TabIndex = 11;
             this.btnMesa11.Text = "Mesa 11";
             this.btnMesa11.UseVisualStyleBackColor = true;
+            this.btnMesa11.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa12
             // 
-            this.btnMesa12.Location = new System.Drawing.Point(505, 109);
+            this.btnMesa12.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa12.Location = new System.Drawing.Point(533, 113);
             this.btnMesa12.Name = "btnMesa12";
             this.btnMesa12.Size = new System.Drawing.Size(109, 69);
             this.btnMesa12.TabIndex = 12;
@@ -220,81 +257,97 @@
             // 
             // btnBarra16
             // 
+            this.btnBarra16.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnBarra16.Location = new System.Drawing.Point(685, 37);
             this.btnBarra16.Name = "btnBarra16";
             this.btnBarra16.Size = new System.Drawing.Size(77, 66);
             this.btnBarra16.TabIndex = 17;
             this.btnBarra16.Text = "Barra 16";
             this.btnBarra16.UseVisualStyleBackColor = true;
-            this.btnBarra16.Click += new System.EventHandler(this.btnBarra16_Click);
+            this.btnBarra16.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnBarra17
             // 
+            this.btnBarra17.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnBarra17.Location = new System.Drawing.Point(685, 112);
             this.btnBarra17.Name = "btnBarra17";
             this.btnBarra17.Size = new System.Drawing.Size(77, 66);
             this.btnBarra17.TabIndex = 18;
             this.btnBarra17.Text = "Barra 17";
             this.btnBarra17.UseVisualStyleBackColor = true;
+            this.btnBarra17.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnBarra18
             // 
+            this.btnBarra18.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnBarra18.Location = new System.Drawing.Point(685, 190);
             this.btnBarra18.Name = "btnBarra18";
             this.btnBarra18.Size = new System.Drawing.Size(77, 66);
             this.btnBarra18.TabIndex = 19;
             this.btnBarra18.Text = "Barra 18";
             this.btnBarra18.UseVisualStyleBackColor = true;
+            this.btnBarra18.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnBarra19
             // 
+            this.btnBarra19.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnBarra19.Location = new System.Drawing.Point(685, 264);
             this.btnBarra19.Name = "btnBarra19";
             this.btnBarra19.Size = new System.Drawing.Size(77, 66);
             this.btnBarra19.TabIndex = 20;
             this.btnBarra19.Text = "Barra 19";
             this.btnBarra19.UseVisualStyleBackColor = true;
+            this.btnBarra19.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnBarra20
             // 
+            this.btnBarra20.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnBarra20.Location = new System.Drawing.Point(685, 336);
             this.btnBarra20.Name = "btnBarra20";
             this.btnBarra20.Size = new System.Drawing.Size(77, 66);
             this.btnBarra20.TabIndex = 21;
             this.btnBarra20.Text = "Barra 20";
             this.btnBarra20.UseVisualStyleBackColor = true;
+            this.btnBarra20.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa13
             // 
-            this.btnMesa13.Location = new System.Drawing.Point(505, 184);
+            this.btnMesa13.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa13.Location = new System.Drawing.Point(533, 188);
             this.btnMesa13.Name = "btnMesa13";
             this.btnMesa13.Size = new System.Drawing.Size(109, 69);
             this.btnMesa13.TabIndex = 22;
             this.btnMesa13.Text = "Mesa 13";
             this.btnMesa13.UseVisualStyleBackColor = true;
+            this.btnMesa13.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa14
             // 
-            this.btnMesa14.Location = new System.Drawing.Point(505, 259);
+            this.btnMesa14.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa14.Location = new System.Drawing.Point(533, 263);
             this.btnMesa14.Name = "btnMesa14";
             this.btnMesa14.Size = new System.Drawing.Size(109, 69);
             this.btnMesa14.TabIndex = 23;
             this.btnMesa14.Text = "Mesa 14";
             this.btnMesa14.UseVisualStyleBackColor = true;
+            this.btnMesa14.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnMesa15
             // 
-            this.btnMesa15.Location = new System.Drawing.Point(505, 336);
+            this.btnMesa15.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesa15.Location = new System.Drawing.Point(533, 340);
             this.btnMesa15.Name = "btnMesa15";
             this.btnMesa15.Size = new System.Drawing.Size(109, 69);
             this.btnMesa15.TabIndex = 24;
             this.btnMesa15.Text = "Mesa 15";
             this.btnMesa15.UseVisualStyleBackColor = true;
+            this.btnMesa15.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // AdministracionLocal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnMesa15);
             this.Controls.Add(this.btnMesa14);
@@ -317,7 +370,10 @@
             this.Controls.Add(this.btnMesa2);
             this.Controls.Add(this.btnMesa1);
             this.Controls.Add(this.pnlBase);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdministracionLocal";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministracionLocal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdministracionLocal_FormClosing);
             this.Load += new System.EventHandler(this.AdministracionLocal_Load);

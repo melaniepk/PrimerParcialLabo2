@@ -13,6 +13,7 @@ namespace Clases
         {
             Chico, Mediano, Grande, Lata, Botella, Vaso
         }
+        protected string nombre;
         protected double precio;
         protected int cantidadStock;
         protected int cantidadAComprar;
@@ -28,7 +29,10 @@ namespace Clases
         {
 
         }
-
+        public abstract string Nombre
+        {
+            get;
+        }
         public abstract double Precio
         {
             get;
@@ -49,6 +53,7 @@ namespace Clases
             get;
             set;
         }
+
 
         protected virtual void AgregarStock()
         {

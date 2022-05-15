@@ -16,107 +16,66 @@ namespace GestionBar
         public List<Bebida> bebidas;
         public List<Comida> comidas;
         public Mesa nuevaMesa = new Mesa();
+        //public List<Menu> productos;
+        //Usuario usuario = new Usuario();
         public MenuNuevaVenta()
         {
             InitializeComponent();
         }
 
-        public MenuNuevaVenta(Mesa mesa):this()
+        public MenuNuevaVenta(KeyValuePair<int, Button> item, Usuario usuario):this()
         {
-            lblNroMesa.Text = ($"N° de Mesa :{mesa.numeroMesa}");
-            lblVendedor.Text = ($"Vendedor :{mesa.vendedor}");
-            if(mesa.esBarra == true)
+            bool esBarra = false;
+            if (item.Key >= 16)
+            {
+                esBarra = true;
+            }
+            nuevaMesa = new Mesa(false, item.Key, esBarra);
+            Int32.TryParse(lblTotal.Text, out int total);
+            nuevaMesa.total = total;
+            if (item.Value.BackColor != Color.Tomato)
+            {
+                item.Value.BackColor = Color.Tomato;
+            }
+            else
+            {
+                item.Value.BackColor = Color.Green;
+            }
+            lblNroMesa.Text = ($"N° de Mesa :{item.Key}");
+            lblVendedor.Text = ($"Vendedor :{usuario.Nombre.ToString()}");
+            if (esBarra)
             {
                 cmbComidas.Enabled = false;
                 cmbTamanioComi.Enabled = false;
             }
-            mesa.AgregarPedido((Bebida)cmbBebidas.SelectedItem,(Comida)cmbComidas.SelectedItem);
-            nuevaMesa = mesa;
+            nuevaMesa.vendedor = usuario;
+
         }
         private void MenuNuevaVenta_Load(object sender, EventArgs e)
         {
-            comidas = new List<Comida>();
-            bebidas = new List<Bebida>();
-            bebidas = this.CargarBebidas(bebidas);
-            comidas = this.CargarComidas(comidas);
+            
+            comidas = new List<Comida>(Local.CrearInventarioComida());
+            bebidas = new List<Bebida>(Local.CrearInventarioBebida());
+            //productos = new List<Menu>(Local.CrearInventarioComida());
+            
             this.CargarComboBoxes(comidas,bebidas);
-            
-        }
-
-
-
-        public List<Comida> CargarComidas(List<Comida> comidas)
-        {
-            Comida comida1 = new Comida("Papas con Cheddar",400,false,500,15,1);
-            Comida comida2 = new Comida("Hamburguesa Especial",800, true,800, 15, 1);
-            Comida comida3 = new Comida("Hambuguesa Clasica", 850, true, 850, 15, 1);
-            Comida comida4 = new Comida("Nuggets de Pollo", 450, false, 560, 15, 1);
-            Comida comida5 = new Comida("Sticks de Muzzarella",560, true, 600, 15, 1);
-            Comida comida6 = new Comida("Pizza individual Napolitana", 600, true,700, 15, 1);
-            Comida comida7 = new Comida("Pizza individual Muzzarella", 550, true, 700, 15, 1);
-            Comida comida8 = new Comida("Nachos con cheddar", 360, true, 450, 15, 1);
-            Comida comida9 = new Comida("Ensalada Caesar", 280, false, 500, 15, 1);
-            Comida comida10 = new Comida("Ensalada Completa", 380, false, 600, 15, 1);
-            Comida comida11 = new Comida("Picada para 3", 1200, true, 1500, 15, 1);
-            Comida comida12 = new Comida("Brownie con Helado", 500, false, 500, 15, 1);
-
-            comidas.Add(comida1);
-            comidas.Add(comida2);
-            comidas.Add(comida3);
-            comidas.Add(comida4);
-            comidas.Add(comida5);
-            comidas.Add(comida6);
-            comidas.Add(comida7);
-            comidas.Add(comida8);
-            comidas.Add(comida9);
-            comidas.Add(comida10);
-            comidas.Add(comida11);
-            comidas.Add(comida12);
-            return comidas;
-
-        }
-        public List<Bebida> CargarBebidas(List<Bebida> bebidas)
-        {
-
-            Bebida bebida1 = new Bebida("Cerveza Honey", true, 300, 30, 1);
-            Bebida bebida2 = new Bebida("Cerveza IPA", true, 300, 30, 1);
-            Bebida bebida3 = new Bebida("Cerveza Brahma", true, 250, 30, 1);
-            Bebida bebida4 = new Bebida("Fernet", true, 400, 30, 1);
-            Bebida bebida5 = new Bebida("Gin tonic", true, 450, 30, 1);
-            Bebida bebida6 = new Bebida("Gancia", true, 350, 30, 1);
-            Bebida bebida7 = new Bebida("Margarita", true, 500, 30, 1);
-            Bebida bebida8 = new Bebida("Mojito", true, 300, 500, 1);
-            Bebida bebida9 = new Bebida("Caipirinha", true, 500, 30, 1);
-            Bebida bebida10 = new Bebida("Gaseosa Fanta", false, 200, 30, 1);
-            Bebida bebida11 = new Bebida("Gaseosa Sprite", false, 200, 30, 1);
-            Bebida bebida12 = new Bebida("Gaseosa Coca-Cola", false, 200, 30, 1);
-
-            bebidas.Add(bebida1);
-            bebidas.Add(bebida2);
-            bebidas.Add(bebida3);
-            bebidas.Add(bebida4);
-            bebidas.Add(bebida5);
-            bebidas.Add(bebida6);
-            bebidas.Add(bebida7);
-            bebidas.Add(bebida8);
-            bebidas.Add(bebida9);
-            bebidas.Add(bebida10);
-            bebidas.Add(bebida11);
-            bebidas.Add(bebida12);
-            return bebidas;
-
+            //rtbPedido.Text = nuevaMesa.pedidoBeb.ToString();
+            //rtbPedido.Text = nuevaMesa.pedidoCom.ToString();
+           // lblTotal.Text = nuevaMesa.total.ToString();
+            lblTotal.Text = lblTotal.Text.Trim();
 
         }
 
-        private void cmbTamanioBebi_SelectedIndexChanged(object sender, EventArgs e)
-        {
+
+        //private void cmbTamanioBebi_SelectedIndexChanged(object sender, EventArgs e)
+        //{
             
 
-        }
+        //}
 
-        public void CargarComboBoxes(List <Comida> comidas, List<Bebida> bebidas)
+        public void CargarComboBoxes(List<Comida> comidas, List<Bebida> bebidas)
         {
-            foreach(Comida com in comidas)
+            foreach (Comida com in comidas)
             {
                 cmbComidas.Items.Add(com.Nombre.ToString());
             }
@@ -181,7 +140,8 @@ namespace GestionBar
             {
                 if (bebida != null && cmbBebidas.SelectedItem != null)
                 {
-                    if (cmbBebidas.SelectedItem.ToString() == bebida.Nombre.ToString() && bebida.CantidadStock > 0 && bebida != null)
+                    if (cmbBebidas.SelectedItem.ToString() == bebida.Nombre.ToString() && bebida.CantidadStock > 0 && bebida != null
+                        && cmbTamanioBebi != null)
                     {
                         rtbPedido.Text = bebida.MostrarProducto();
                         int n = dgvPedido.Rows.Add();
@@ -191,8 +151,10 @@ namespace GestionBar
                         dgvPedido.Rows[n].Cells[3].Value = bebida.Precio.ToString();
 
                         pedidoBebida = bebida;
-                        precioBebida += bebida.Precio; 
-                    }                    
+                        nuevaMesa.pedidoBeb.Add(pedidoBebida);
+                        precioBebida += bebida.Precio;
+
+                    }
                 }
                 else
                 {
@@ -202,10 +164,12 @@ namespace GestionBar
 
 
             foreach (Comida com in comidas)
-            {                
+            {
                 if (com != null && cmbComidas.SelectedItem != null)
                 {
-                    if (cmbComidas.SelectedItem.ToString() == com.Nombre.ToString() && com.CantidadStock > 0 && com != null)
+                    if (nuevaMesa.esBarra == false && cmbComidas.SelectedItem.ToString() == com.Nombre.ToString()
+                        && com.CantidadStock > 0 && com != null
+                        && cmbTamanioComi != null)
                     {
                         rtbPedido.Text = com.MostrarProducto();
                         int n = dgvPedido.Rows.Add();
@@ -214,16 +178,18 @@ namespace GestionBar
                         dgvPedido.Rows[n].Cells[2].Value = cmbTamanioComi.SelectedItem.ToString();
                         dgvPedido.Rows[n].Cells[3].Value = com.Precio.ToString();
                         pedidoComida = com;
+                        nuevaMesa.pedidoCom.Add(pedidoComida);
                         com.CantidadStock--;
                         precioComida += com.Precio;
                         
-                    } 
+                    }
                 }
                 else
                 {
                     rtbPedido.Text = " ";
                 }
             }
+            //nuevaMesa.AgregarPedido(Bebida)(cmbBebidas.SelectedItem);
 
             return (precioComida + precioBebida);
             
@@ -233,9 +199,15 @@ namespace GestionBar
 
         private void btnCerrarVenta_Click(object sender, EventArgs e)
         {
-
+            
             CerrarVenta frmCerrarVenta = new CerrarVenta(nuevaMesa);
-            frmCerrarVenta.Show();
+            frmCerrarVenta.ShowDialog();
+            nuevaMesa.estaLibre = true;
+            Local.EstadoMesas();
+            AdministracionLocal frmAdmLocal = new AdministracionLocal(nuevaMesa.vendedor);
+            frmAdmLocal.Show();
+           
+            
             this.Hide();
         }
 
@@ -249,9 +221,18 @@ namespace GestionBar
             {
                 this.Close();
             }
-            AdministracionLocal frmAdminLocal = new AdministracionLocal();
-            frmAdminLocal.Show();
+            
            
         }
+
+        //private void lblTotaltxt_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void panel2_Paint(object sender, PaintEventArgs e)
+        //{
+
+        //}
     }
 }

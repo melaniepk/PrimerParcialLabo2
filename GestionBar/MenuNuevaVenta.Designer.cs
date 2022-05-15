@@ -28,13 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblVendedor = new System.Windows.Forms.Label();
-            this.lblNroMesa = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cmbBebidas = new System.Windows.Forms.ComboBox();
             this.cmbComidas = new System.Windows.Forms.ComboBox();
-            this.lblBebidas = new System.Windows.Forms.Label();
             this.lblComidas = new System.Windows.Forms.Label();
             this.rtbPedido = new System.Windows.Forms.RichTextBox();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -46,86 +40,42 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tamaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTamanioBebida = new System.Windows.Forms.Label();
             this.lblTamanioComida = new System.Windows.Forms.Label();
-            this.cmbTamanioBebi = new System.Windows.Forms.ComboBox();
             this.cmbTamanioComi = new System.Windows.Forms.ComboBox();
-            this.panel1.SuspendLayout();
+            this.lblVendedor = new System.Windows.Forms.Label();
+            this.lblNroMesa = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbTamanioBebi = new System.Windows.Forms.ComboBox();
+            this.cmbBebidas = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotaltxt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblVendedor);
-            this.panel1.Controls.Add(this.lblNroMesa);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(307, 123);
-            this.panel1.TabIndex = 0;
-            // 
-            // lblVendedor
-            // 
-            this.lblVendedor.AutoSize = true;
-            this.lblVendedor.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblVendedor.Location = new System.Drawing.Point(14, 81);
-            this.lblVendedor.Name = "lblVendedor";
-            this.lblVendedor.Size = new System.Drawing.Size(0, 20);
-            this.lblVendedor.TabIndex = 2;
-            // 
-            // lblNroMesa
-            // 
-            this.lblNroMesa.AutoSize = true;
-            this.lblNroMesa.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNroMesa.Location = new System.Drawing.Point(14, 52);
-            this.lblNroMesa.Name = "lblNroMesa";
-            this.lblNroMesa.Size = new System.Drawing.Size(0, 20);
-            this.lblNroMesa.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(0, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Nombre del cliente";
-            this.textBox1.Size = new System.Drawing.Size(187, 23);
-            this.textBox1.TabIndex = 0;
-            // 
-            // cmbBebidas
-            // 
-            this.cmbBebidas.FormattingEnabled = true;
-            this.cmbBebidas.Location = new System.Drawing.Point(12, 184);
-            this.cmbBebidas.Name = "cmbBebidas";
-            this.cmbBebidas.Size = new System.Drawing.Size(187, 23);
-            this.cmbBebidas.TabIndex = 1;
             // 
             // cmbComidas
             // 
+            this.cmbComidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.cmbComidas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbComidas.FormattingEnabled = true;
-            this.cmbComidas.Location = new System.Drawing.Point(12, 261);
+            this.cmbComidas.Location = new System.Drawing.Point(4, 41);
             this.cmbComidas.Name = "cmbComidas";
             this.cmbComidas.Size = new System.Drawing.Size(187, 23);
             this.cmbComidas.TabIndex = 2;
             // 
-            // lblBebidas
-            // 
-            this.lblBebidas.AutoSize = true;
-            this.lblBebidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblBebidas.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblBebidas.Location = new System.Drawing.Point(12, 152);
-            this.lblBebidas.Name = "lblBebidas";
-            this.lblBebidas.Size = new System.Drawing.Size(72, 20);
-            this.lblBebidas.TabIndex = 3;
-            this.lblBebidas.Text = "Bebidas";
-            // 
             // lblComidas
             // 
             this.lblComidas.AutoSize = true;
-            this.lblComidas.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblComidas.Location = new System.Drawing.Point(12, 228);
+            this.lblComidas.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblComidas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblComidas.Location = new System.Drawing.Point(4, 17);
             this.lblComidas.Name = "lblComidas";
-            this.lblComidas.Size = new System.Drawing.Size(77, 20);
+            this.lblComidas.Size = new System.Drawing.Size(151, 21);
             this.lblComidas.TabIndex = 4;
-            this.lblComidas.Text = "Comidas";
+            this.lblComidas.Text = "Menu Comidas";
             // 
             // rtbPedido
             // 
@@ -139,40 +89,52 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Bookman Old Style", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(360, 388);
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTotal.Location = new System.Drawing.Point(488, 392);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(122, 36);
+            this.lblTotal.Size = new System.Drawing.Size(0, 36);
             this.lblTotal.TabIndex = 6;
-            this.lblTotal.Text = "Total $:";
             // 
             // btnAgregarPedido
             // 
-            this.btnAgregarPedido.Location = new System.Drawing.Point(12, 307);
+            this.btnAgregarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.btnAgregarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarPedido.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregarPedido.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAgregarPedido.Location = new System.Drawing.Point(13, 181);
             this.btnAgregarPedido.Name = "btnAgregarPedido";
             this.btnAgregarPedido.Size = new System.Drawing.Size(138, 61);
             this.btnAgregarPedido.TabIndex = 7;
             this.btnAgregarPedido.Text = "Agregar al Pedido";
-            this.btnAgregarPedido.UseVisualStyleBackColor = true;
+            this.btnAgregarPedido.UseVisualStyleBackColor = false;
             this.btnAgregarPedido.Click += new System.EventHandler(this.btnAgregarPedido_Click);
             // 
             // btnCerrarVenta
             // 
-            this.btnCerrarVenta.Location = new System.Drawing.Point(172, 307);
+            this.btnCerrarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.btnCerrarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarVenta.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrarVenta.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCerrarVenta.Location = new System.Drawing.Point(185, 181);
             this.btnCerrarVenta.Name = "btnCerrarVenta";
             this.btnCerrarVenta.Size = new System.Drawing.Size(138, 61);
             this.btnCerrarVenta.TabIndex = 8;
             this.btnCerrarVenta.Text = "Cerrar Venta";
-            this.btnCerrarVenta.UseVisualStyleBackColor = true;
+            this.btnCerrarVenta.UseVisualStyleBackColor = false;
             this.btnCerrarVenta.Click += new System.EventHandler(this.btnCerrarVenta_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(89, 382);
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSalir.Location = new System.Drawing.Point(103, 248);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(138, 61);
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // dgvPedido
@@ -209,85 +171,161 @@
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
             // 
-            // lblTamanioBebida
-            // 
-            this.lblTamanioBebida.AutoSize = true;
-            this.lblTamanioBebida.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTamanioBebida.Location = new System.Drawing.Point(214, 152);
-            this.lblTamanioBebida.Name = "lblTamanioBebida";
-            this.lblTamanioBebida.Size = new System.Drawing.Size(71, 20);
-            this.lblTamanioBebida.TabIndex = 11;
-            this.lblTamanioBebida.Text = "Tamaño";
-            // 
             // lblTamanioComida
             // 
             this.lblTamanioComida.AutoSize = true;
-            this.lblTamanioComida.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTamanioComida.Location = new System.Drawing.Point(214, 228);
+            this.lblTamanioComida.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTamanioComida.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTamanioComida.Location = new System.Drawing.Point(196, 17);
             this.lblTamanioComida.Name = "lblTamanioComida";
-            this.lblTamanioComida.Size = new System.Drawing.Size(71, 20);
+            this.lblTamanioComida.Size = new System.Drawing.Size(92, 21);
             this.lblTamanioComida.TabIndex = 12;
-            this.lblTamanioComida.Text = "Tamaño";
-            // 
-            // cmbTamanioBebi
-            // 
-            this.cmbTamanioBebi.FormattingEnabled = true;
-            this.cmbTamanioBebi.Location = new System.Drawing.Point(214, 184);
-            this.cmbTamanioBebi.Name = "cmbTamanioBebi";
-            this.cmbTamanioBebi.Size = new System.Drawing.Size(95, 23);
-            this.cmbTamanioBebi.TabIndex = 13;
-            this.cmbTamanioBebi.SelectedIndexChanged += new System.EventHandler(this.cmbTamanioBebi_SelectedIndexChanged);
+            this.lblTamanioComida.Text = "Tamaño ";
             // 
             // cmbTamanioComi
             // 
+            this.cmbTamanioComi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.cmbTamanioComi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTamanioComi.FormattingEnabled = true;
-            this.cmbTamanioComi.Location = new System.Drawing.Point(214, 261);
+            this.cmbTamanioComi.Location = new System.Drawing.Point(196, 41);
             this.cmbTamanioComi.Name = "cmbTamanioComi";
-            this.cmbTamanioComi.Size = new System.Drawing.Size(96, 23);
+            this.cmbTamanioComi.Size = new System.Drawing.Size(127, 23);
             this.cmbTamanioComi.TabIndex = 14;
+            // 
+            // lblVendedor
+            // 
+            this.lblVendedor.AutoSize = true;
+            this.lblVendedor.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblVendedor.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblVendedor.Location = new System.Drawing.Point(3, 65);
+            this.lblVendedor.Name = "lblVendedor";
+            this.lblVendedor.Size = new System.Drawing.Size(99, 21);
+            this.lblVendedor.TabIndex = 15;
+            this.lblVendedor.Text = "Vendedor";
+            // 
+            // lblNroMesa
+            // 
+            this.lblNroMesa.AutoSize = true;
+            this.lblNroMesa.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNroMesa.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblNroMesa.Location = new System.Drawing.Point(3, 16);
+            this.lblNroMesa.Name = "lblNroMesa";
+            this.lblNroMesa.Size = new System.Drawing.Size(97, 21);
+            this.lblNroMesa.TabIndex = 16;
+            this.lblNroMesa.Text = "Nro Mesa";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.RosyBrown;
+            this.panel1.Controls.Add(this.lblNroMesa);
+            this.panel1.Controls.Add(this.lblVendedor);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(342, 97);
+            this.panel1.TabIndex = 17;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.RosyBrown;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.cmbTamanioBebi);
+            this.panel2.Controls.Add(this.btnCerrarVenta);
+            this.panel2.Controls.Add(this.cmbBebidas);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btnSalir);
+            this.panel2.Controls.Add(this.lblTamanioComida);
+            this.panel2.Controls.Add(this.cmbTamanioComi);
+            this.panel2.Controls.Add(this.btnAgregarPedido);
+            this.panel2.Controls.Add(this.cmbComidas);
+            this.panel2.Controls.Add(this.lblComidas);
+            this.panel2.Location = new System.Drawing.Point(12, 115);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(342, 328);
+            this.panel2.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(196, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 21);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Tamaño";
+            // 
+            // cmbTamanioBebi
+            // 
+            this.cmbTamanioBebi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.cmbTamanioBebi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTamanioBebi.FormattingEnabled = true;
+            this.cmbTamanioBebi.Location = new System.Drawing.Point(196, 99);
+            this.cmbTamanioBebi.Name = "cmbTamanioBebi";
+            this.cmbTamanioBebi.Size = new System.Drawing.Size(127, 23);
+            this.cmbTamanioBebi.TabIndex = 18;
+            // 
+            // cmbBebidas
+            // 
+            this.cmbBebidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(79)))));
+            this.cmbBebidas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBebidas.FormattingEnabled = true;
+            this.cmbBebidas.Location = new System.Drawing.Point(4, 99);
+            this.cmbBebidas.Name = "cmbBebidas";
+            this.cmbBebidas.Size = new System.Drawing.Size(187, 23);
+            this.cmbBebidas.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(4, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 21);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Menu Bebidas";
+            // 
+            // lblTotaltxt
+            // 
+            this.lblTotaltxt.AutoSize = true;
+            this.lblTotaltxt.Font = new System.Drawing.Font("Bookman Old Style", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotaltxt.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTotaltxt.Location = new System.Drawing.Point(360, 392);
+            this.lblTotaltxt.Name = "lblTotaltxt";
+            this.lblTotaltxt.Size = new System.Drawing.Size(122, 36);
+            this.lblTotaltxt.TabIndex = 19;
+            this.lblTotaltxt.Text = "Total $:";
             // 
             // MenuNuevaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(802, 459);
-            this.Controls.Add(this.cmbTamanioComi);
-            this.Controls.Add(this.cmbTamanioBebi);
-            this.Controls.Add(this.lblTamanioComida);
-            this.Controls.Add(this.lblTamanioBebida);
+            this.Controls.Add(this.lblTotaltxt);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvPedido);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnCerrarVenta);
-            this.Controls.Add(this.btnAgregarPedido);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.rtbPedido);
-            this.Controls.Add(this.lblComidas);
-            this.Controls.Add(this.lblBebidas);
-            this.Controls.Add(this.cmbComidas);
-            this.Controls.Add(this.cmbBebidas);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Name = "MenuNuevaVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "5";
             this.Text = "MenuNuevaVenta";
             this.Load += new System.EventHandler(this.MenuNuevaVenta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblVendedor;
-        private System.Windows.Forms.Label lblNroMesa;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox cmbBebidas;
         private System.Windows.Forms.ComboBox cmbComidas;
-        private System.Windows.Forms.Label lblBebidas;
         private System.Windows.Forms.Label lblComidas;
         private System.Windows.Forms.RichTextBox rtbPedido;
         private System.Windows.Forms.Label lblTotal;
@@ -299,9 +337,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tamaño;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.Label lblTamanioBebida;
         private System.Windows.Forms.Label lblTamanioComida;
-        private System.Windows.Forms.ComboBox cmbTamanioBebi;
         private System.Windows.Forms.ComboBox cmbTamanioComi;
+        private System.Windows.Forms.Label lblVendedor;
+        private System.Windows.Forms.Label lblNroMesa;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbTamanioBebi;
+        private System.Windows.Forms.ComboBox cmbBebidas;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTotaltxt;
     }
 }
