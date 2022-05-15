@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "FzcBIRsb2akX0HfIQKTzEE9ATgO/IqWDcWVF9t0I1+l4VX7NjiXDGRvbq3Xh3z8z8ZGqkGEPFHlQNX5CVhfwyA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mkale\\source\\repos\\PrimerParcialLabo2\\usuario\\Clases.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mkale\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\mkale\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\mkale\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

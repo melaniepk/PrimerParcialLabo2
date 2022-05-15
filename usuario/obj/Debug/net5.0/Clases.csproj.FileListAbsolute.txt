@@ -1,0 +1,12 @@
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\obj\Debug\net5.0\Clases.csproj.AssemblyReference.cache
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\obj\Debug\net5.0\Clases.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\obj\Debug\net5.0\Clases.AssemblyInfoInputs.cache
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\obj\Debug\net5.0\Clases.AssemblyInfo.cs
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\obj\Debug\net5.0\Clases.csproj.CoreCompileInputs.cache
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\bin\Debug\net5.0\Clases.deps.json
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\bin\Debug\net5.0\Clases.dll
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\bin\Debug\net5.0\Clases.pdb
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\obj\Debug\net5.0\Clases.dll
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\obj\Debug\net5.0\refint\Clases.dll
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\obj\Debug\net5.0\Clases.pdb
+C:\Users\mkale\source\repos\PrimerParcialLabo2\usuario\obj\Debug\net5.0\ref\Clases.dll
