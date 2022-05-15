@@ -23,6 +23,17 @@ namespace GestionBar
             InitializeComponent();
         }
 
+        /// <summary>
+        /// determina si la key del item recibido es mayor a 16, es decir perteneceria a una barra
+        /// crea una nueva mesa y le asigna el total del label total
+        /// evalua el color de fondo del boton y le asigna uno diferente
+        /// (la peor solucion del mundo pero es lo unico que se me ocurrio despues de fallar en repetidas ocasiones)
+        /// imprime el numero de mesa y el nombre del vendedor en sus respectivos labels
+        /// inhabilita los botones para ordenar comida si es barra
+        /// asigna como vendedor de la mesa al usuario recibido.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="usuario"></param>
         public MenuNuevaVenta(KeyValuePair<int, Button> item, Usuario usuario):this()
         {
             bool esBarra = false;
@@ -49,30 +60,29 @@ namespace GestionBar
                 cmbTamanioComi.Enabled = false;
             }
             nuevaMesa.vendedor = usuario;
-
         }
+
+        /// <summary>
+        /// crea los inventarios de comida y bebida
+        /// llama a las funciones para cargar las comboBoxes correspondientes
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuNuevaVenta_Load(object sender, EventArgs e)
-        {
-            
+        {            
             comidas = new List<Comida>(Local.CrearInventarioComida());
             bebidas = new List<Bebida>(Local.CrearInventarioBebida());
-            //productos = new List<Menu>(Local.CrearInventarioComida());
             
             this.CargarComboBoxes(comidas,bebidas);
-            //rtbPedido.Text = nuevaMesa.pedidoBeb.ToString();
-            //rtbPedido.Text = nuevaMesa.pedidoCom.ToString();
-           // lblTotal.Text = nuevaMesa.total.ToString();
-            lblTotal.Text = lblTotal.Text.Trim();
-
         }
 
-
-        //private void cmbTamanioBebi_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-            
-
-        //}
-
+        /// <summary>
+        /// agrega los nombres de las coidas y las bebidas a las comboboxes
+        /// agrega los tamaños correspondientes a cada comboBox de tamaño
+        /// </summary>
+        /// <param name="comidas"></param>
+        /// <param name="bebidas"></param>
         public void CargarComboBoxes(List<Comida> comidas, List<Bebida> bebidas)
         {
             foreach (Comida com in comidas)
@@ -94,29 +104,36 @@ namespace GestionBar
             cmbTamanioComi.Items.Add(Menu.Etamanio.Chico.ToString());
             cmbTamanioComi.Items.Add(Menu.Etamanio.Mediano.ToString());
             cmbTamanioComi.Items.Add(Menu.Etamanio.Grande.ToString());
-
-
-
         }
 
+        /// <summary>
+        /// llama a la funcion sumar total
+        /// imprime el total en el label correspondiente y lo asigna a la mesa.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregarPedido_Click(object sender, EventArgs e)
-        {
-           
+        {           
             double total = this.SumarTotal();
             lblTotal.Text = total.ToString();
             nuevaMesa.total = total;
-
         }
 
+        /// <summary>
+        /// convierte a numero el texto de total o en caso de ser imposible 
+        /// lo deja en 0
+        /// iguala "suma" a la suma de los pedidos hecha en AgregarElem
+        /// y la asigna al total
+        /// </summary>
+        /// <returns>devuelve el total</returns>
         public double SumarTotal()
         {
-            double total;
-            
-           if(Double.TryParse(lblTotal.Text, out double suma))
+            double total;            
+            if(Double.TryParse(lblTotal.Text, out double suma))
             {
                 total = suma;
             }
-           else
+            else
             {
                 total = 0;
             }
@@ -129,6 +146,17 @@ namespace GestionBar
             return total;
 
         }
+
+        /// <summary>
+        /// crea pedidos de comidas y bebidas. realiza las validaciones correspondientes 
+        /// muestar la info de los productos seleccionados en la richtextBox.
+        /// asigna los datos del producto agregado a sus correspondientes celdas en el dgv
+        /// agrega la bebida o comida seleccionada a pedidoBebida o pedidoComida.
+        /// agrega el pedido a la mesa
+        /// suma a precioBebida o precioComida el precio del item seleccionado
+        /// devuelve la suma de los precios de los pedidos.
+        /// </summary>
+        /// <returns></returns>
         public double AgregarElem()
         {
             Bebida pedidoBebida;
@@ -149,9 +177,11 @@ namespace GestionBar
                         dgvPedido.Rows[n].Cells[1].Value = bebida.CantidadAComprar.ToString();
                         dgvPedido.Rows[n].Cells[2].Value = cmbTamanioBebi.SelectedItem.ToString();
                         dgvPedido.Rows[n].Cells[3].Value = bebida.Precio.ToString();
-
+                        cmbBebidas.Text = " ";
+                        cmbTamanioBebi.Text = " ";
                         pedidoBebida = bebida;
                         nuevaMesa.pedidoBeb.Add(pedidoBebida);
+                        bebida.CantidadStock--;
                         precioBebida += bebida.Precio;
 
                     }
@@ -178,6 +208,8 @@ namespace GestionBar
                         dgvPedido.Rows[n].Cells[2].Value = cmbTamanioComi.SelectedItem.ToString();
                         dgvPedido.Rows[n].Cells[3].Value = com.Precio.ToString();
                         pedidoComida = com;
+                        cmbComidas.Text = " ";
+                        cmbTamanioComi.Text = " ";
                         nuevaMesa.pedidoCom.Add(pedidoComida);
                         com.CantidadStock--;
                         precioComida += com.Precio;
@@ -189,28 +221,31 @@ namespace GestionBar
                     rtbPedido.Text = " ";
                 }
             }
-            //nuevaMesa.AgregarPedido(Bebida)(cmbBebidas.SelectedItem);
 
-            return (precioComida + precioBebida);
-            
-            
-
+            return (precioComida + precioBebida);          
+           
         }
 
+        /// <summary>
+        /// crea el formulario de CerrarVenta, libera la mesa
+        /// y oculta el form actual
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrarVenta_Click(object sender, EventArgs e)
         {
-            
             CerrarVenta frmCerrarVenta = new CerrarVenta(nuevaMesa);
             frmCerrarVenta.ShowDialog();
             nuevaMesa.estaLibre = true;
-            Local.EstadoMesas();
-            AdministracionLocal frmAdmLocal = new AdministracionLocal(nuevaMesa.vendedor);
-            frmAdmLocal.Show();
-           
             
             this.Hide();
         }
 
+        /// <summary>
+        /// envia un mensaje de tipo dialogResult, en caso de respuesta positiva cieera el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             string mensaje = "Seguro de querer salir?";
@@ -220,19 +255,7 @@ namespace GestionBar
             if (result == DialogResult.Yes)
             {
                 this.Close();
-            }
-            
-           
+            }                    
         }
-
-        //private void lblTotaltxt_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void panel2_Paint(object sender, PaintEventArgs e)
-        //{
-
-        //}
     }
 }

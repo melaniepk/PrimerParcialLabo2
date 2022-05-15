@@ -147,6 +147,7 @@
             this.Precio});
             this.dgvPedido.Location = new System.Drawing.Point(360, 201);
             this.dgvPedido.Name = "dgvPedido";
+            this.dgvPedido.ReadOnly = true;
             this.dgvPedido.RowTemplate.Height = 25;
             this.dgvPedido.Size = new System.Drawing.Size(412, 167);
             this.dgvPedido.TabIndex = 10;
@@ -155,21 +156,25 @@
             // 
             this.Producto.HeaderText = "Producto";
             this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
             // 
             // Tamaño
             // 
             this.Tamaño.HeaderText = "Tamaño";
             this.Tamaño.Name = "Tamaño";
+            this.Tamaño.ReadOnly = true;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
             // 
             // lblTamanioComida
             // 

@@ -15,24 +15,27 @@ namespace GestionBar
     {
         public List<Bebida> bebidas;
         public List<Comida> comidas;
-        //public List<Menu> productos;
 
         public Inventario()
         {
             InitializeComponent();
             bebidas = new List<Bebida>();
-            comidas = new List<Comida>();
-
-            bebidas = Local.CrearInventarioBebida();
-            comidas = Local.CrearInventarioComida();
-            CargarComidas();
-            CargarBebidas();
+            comidas = new List<Comida>();           
 
         }
 
         private void Inventario_Load(object sender, EventArgs e)
         {
+            bebidas = Local.CrearInventarioBebida();
+            comidas = Local.CrearInventarioComida();
+            CargarComidas();
+            CargarBebidas();
         }
+
+        /// <summary>
+        /// agrega los nombres de las comidas al comboBox y 
+        /// llama a la funcion CargarDataGridViewComida
+        /// </summary>
         public void CargarComidas()
         {
             foreach (Comida comida in comidas)
@@ -44,6 +47,10 @@ namespace GestionBar
 
         }
 
+        /// <summary>
+        /// agrega los nombres de las bebidas al comboBox y 
+        /// llama a la funcion CargarDataGridViewBebida
+        /// </summary>
         public void CargarBebidas()
         {
             foreach (Bebida bebida in bebidas)
@@ -54,6 +61,12 @@ namespace GestionBar
             CargarDataGridViewBebida();
 
         }
+
+        /// <summary>
+        /// crea las filas en el data grid view por cada comida
+        /// muestra en las celdas 0 y 1 el nombre y la cantidad en stock 
+        /// de la comida
+        /// </summary>
         public void CargarDataGridViewComida()
         {
             foreach(Comida comida in comidas)
@@ -65,6 +78,12 @@ namespace GestionBar
 
             }
         }
+
+        /// <summary>
+        /// crea las filas en el data grid view por cada bebida
+        /// muestra en las celdas 0 y 1 el nombre y la cantidad en stock 
+        /// de la bebida
+        /// </summary>
         public void CargarDataGridViewBebida()
         {
             foreach (Bebida bebida in bebidas)
@@ -77,6 +96,12 @@ namespace GestionBar
             }            
         }
 
+        /// <summary>
+        /// hace las verificaciones correspondientes, transforma a numero
+        /// la cantidad ingresada en el textBox de comida y la agrega 
+        /// a la cantidad en stock de esa comida.
+        /// luego lo imprime en el dataGridView correspondiente
+        /// </summary>
         public void AgregarProductosComida()
         {
             foreach (Comida comida in comidas)
@@ -91,6 +116,13 @@ namespace GestionBar
                 }
             }
         }
+
+        /// <summary>
+        /// hace las verificaciones correspondientes, transforma a numero
+        /// la cantidad ingresada en el textBox de bebida y la agrega 
+        /// a la cantidad en stock de esa bebida.
+        /// luego lo imprime en el dataGridView correspondiente
+        /// </summary>
         public void AgregarProductosBebida()
         {
             foreach (Bebida bebida in bebidas)
@@ -106,61 +138,14 @@ namespace GestionBar
             }
         }
 
-        //public List<Bebida> AgregarStockBebi()
-        //{
-        //    foreach(Bebida bebida in bebidas)
-        //    {
-        //        if (cmbProductos.SelectedItem == bebida)
-        //        {
-        //           if( Int32.TryParse(txbCantidad.Text, out int cantidad))
-        //            {
-        //                bebida.CantidadStock += cantidad;
-        //                int n = dgvEstadoStock.Rows.Add();
-
-        //                dgvEstadoStock.Rows[n].Cells[1].Value = bebida.CantidadStock;
-
-        //            }
-
-        //        }
-        //    }
-
-        //    return bebidas;
-        //}
-        //public List<Comida> AgregarStockComi()
-        //{
-        //    foreach (Comida com in comida)
-        //    {
-        //        if (cmbProductos.SelectedItem == comida)
-        //        {
-        //            if (Int32.TryParse(txbCantidad.Text, out int cantidad))
-        //            {
-        //                com.CantidadStock += cantidad;
-        //                int n = dgvEstadoStock.Rows.Add();
-
-        //                dgvEstadoStock.Rows[n].Cells[1].Value = com.CantidadStock;
-
-        //            }
-
-        //        }
-        //    }
-
-        //    return comida;
-        //}
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AgregarProductosComida();
-            //bebidas = AgregarStockBebi();
-            //comida = AgregarStockComi();
-            //CargarProductos(bebidas, comida);
-            //CargarDataGridView();
-            
-         }
+            AgregarProductosComida();                    
+        }
 
         private void btnAgregarBebi_Click(object sender, EventArgs e)
         {
             AgregarProductosBebida();
-
         }
     }
 }

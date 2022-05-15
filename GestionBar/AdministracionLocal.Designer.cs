@@ -254,6 +254,7 @@
             this.btnMesa12.TabIndex = 12;
             this.btnMesa12.Text = "Mesa 12";
             this.btnMesa12.UseVisualStyleBackColor = true;
+            this.btnMesa12.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnBarra16
             // 

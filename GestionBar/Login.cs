@@ -22,11 +22,19 @@ namespace GestionBar
             Usuario.CargarUsuarios(usuarios);
         }
 
+        /// <summary>
+        /// obtiene los textos ingresados en las textBox de usuario y clave
+        /// evalua en la lista de usuarios si los datos ingresados son validos
+        /// de ser asi, abre el formulario de Administracion del local
+        /// imprime un mensaje de error en caso contraio.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             string usuario = this.tbxUsuario.Text.ToLower();
             string clave = this.tbxClave.Text.ToLower();
-            int usuarioCorrecto = 1;
+            int usuarioCorrecto = 0;
             foreach (Usuario usuario1 in usuarios)
             {
                 if (usuario1.Nombre == usuario && usuario1.EsUsuarioValido(clave))
@@ -45,27 +53,7 @@ namespace GestionBar
                 string titulo = "ERROR";
                 MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //int usuarioCorrecto = 0;
-
-            //if (string.IsNullOrEmpty(tbxUsuario.Text) || string.IsNullOrEmpty(tbxClave.Text))
-            //    MessageBox.Show("Ingrese datos validos");
-            //else
-            //{
-            //    if (int.TryParse(tbxUsuario.Text, out int id))
-            //    {
-            //        Usuario userLogueado = Local.LoguearUsuario(id, tbxClave.Text);
-
-            //        if (userLogueado is not null)
-            //        {
-            //            AdministracionLocal frmAdmLocal = new AdministracionLocal(userLogueado);
-
-            //            frmAdmLocal.Show();
-            //            this.Hide();
-            //            //usuarioCorrecto = 1;
-                       
-            //        }
-            //    }
-            //}
+            
         }
 
         private void btnRellenarDue_Click(object sender, EventArgs e)
@@ -80,9 +68,5 @@ namespace GestionBar
             tbxClave.Text = "peposo";
         }
 
-        //private void tbxUsuario_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
     }
 }

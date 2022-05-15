@@ -31,6 +31,11 @@ namespace GestionBar
 
         }
 
+        /// <summary>
+        /// recibe el usuario logueado y evalua si es sueño o no
+        /// asigna un color de fondo diferente en cada caso y habilita/deshabilita botones
+        /// </summary>
+        /// <param name="usuario"></param>
         public AdministracionLocal(Usuario usuario):this()
         {
             this.usuario = usuario;
@@ -54,7 +59,9 @@ namespace GestionBar
             ObtenerEstadoMesas();
         }
 
-
+        /// <summary>
+        /// agrega los botones y sus keys al diccionario de botones
+        /// </summary>
         private void CargarMesas()
         {
 
@@ -81,6 +88,11 @@ namespace GestionBar
 
         }
 
+        /// <summary>
+        /// obtiene la disponibilidad de las mesas, comprobando cuales de estas estan libres
+        /// luego asigna un color a cada boton segun el bool del value 
+        /// este seteado en true o false
+        /// </summary>
         private void ObtenerEstadoMesas()
         {
             disponibilidadMesas = Local.EstadoMesas();
@@ -127,12 +139,12 @@ namespace GestionBar
         private void btnMesa_Click(object sender, EventArgs e)
         {
             Button auxBtn = (Button)sender;
-            foreach (KeyValuePair<int, Button> item in botones)
+            foreach (KeyValuePair<int, Button> mesa in botones)
             {
-                if (item.Value == auxBtn)
+                if (mesa.Value == auxBtn)
                 {
-                    MenuNuevaVenta frmMenu = new MenuNuevaVenta(item, usuario);
-                    frmMenu.ShowDialog();                   
+                    MenuNuevaVenta frmMenu = new MenuNuevaVenta(mesa, usuario);
+                    frmMenu.ShowDialog();                     
                 }
             }
 
