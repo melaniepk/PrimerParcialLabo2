@@ -16,16 +16,21 @@ namespace GestionBar
     {
         Mesa MesaCobrada = new Mesa();
         double recargo;
+        SoundPlayer playSimpleSoundError;
+        SoundPlayer playSimpleSoundCobrar;
 
         public CerrarVenta()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            this.playSimpleSoundError = new SoundPlayer(Properties.Resources.audioError);
+            this.playSimpleSoundCobrar = new SoundPlayer(Properties.Resources.audioParaCaja);
         }
 
         public CerrarVenta(Mesa mesa):this()
         {
             MesaCobrada= mesa;
-            lblMesaNro.Text = $"Nro de mesa: {MesaCobrada.numeroMesa}";                 
+            lblMesaNro.Text = $"Nro de mesa: {MesaCobrada.numeroMesa}"; 
+            recargo = MesaCobrada.total * 10 / 100;
         }
 
         private void CerrarVenta_Load(object sender, EventArgs e)
@@ -56,7 +61,7 @@ namespace GestionBar
         /// <param name="e"></param>
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            playSimpleSoundCobrar();
+            playSimpleSoundCobrar.Play();
             if (cmbPago.SelectedItem != null && tbxImporte != null)
             {
                 if (cmbPago.SelectedItem.ToString() == "Tarjeta de credito")
@@ -66,7 +71,6 @@ namespace GestionBar
                     MesaCobrada.total += recargo;
                     lblTotalNro.Text = MesaCobrada.total.ToString();
                     Cobrar();
-
                 }
                 else
                 {
@@ -92,7 +96,7 @@ namespace GestionBar
         {
             double.TryParse(tbxImporte.Text, out double importe);
             double.TryParse(lblTotalNro.Text, out double total);
-            if (importe > 0 && total >= 0 && importe > total)
+            if (importe > 0 && total >= 0 && importe >= total)
             {
                 double vuelto = importe - total;
                 lblVueltoNro.Text = vuelto.ToString();
@@ -100,7 +104,7 @@ namespace GestionBar
             }
             else
             {
-                playSimpleSoundError();
+                playSimpleSoundError.Play();
                 MessageBox.Show("Importe erroneo ", "ERROR ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (cmbPago.SelectedItem.ToString() == "Tarjeta de credito")
                 {
@@ -118,37 +122,24 @@ namespace GestionBar
         /// <param name="e"></param>
         private void ckbEstacionamiento_CheckedChanged(object sender, EventArgs e)
         {
+            
             if (ckbEstacionamiento.Checked)
             {
-                MesaCobrada.total += (MesaCobrada.total * 10) / 100;
+                MesaCobrada.total += recargo;
+                lblTotalNro.Text = MesaCobrada.total.ToString();
+            }
+            if(ckbEstacionamiento.Checked == false)
+            {
+                MesaCobrada.total -= recargo;
                 lblTotalNro.Text = MesaCobrada.total.ToString();
             }
 
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
-        {
-            
+        {            
             this.Hide();
         }
 
-        /// <summary>
-        /// reproduce un sonido 
-        /// </summary>
-        private void playSimpleSoundCobrar()
-        {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\mkale\source\repos\PrimerParcialLabo2\GestionBar\Properties\audioParaCaja.wav");
-            simpleSound.Play();
-        }
-
-        /// <summary>
-        /// 
-        /// reproduce un sonido de error
-        /// </summary>
-        private void playSimpleSoundError()
-        {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\mkale\source\repos\PrimerParcialLabo2\GestionBar\Properties\audioError.wav");
-            simpleSound.Play();
-        }
     }
 }

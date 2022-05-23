@@ -14,11 +14,10 @@ namespace GestionBar
 {
     public partial class AdministracionLocal : Form
     {
-        //private string usuarioN;
         private Usuario usuario;
         Dictionary<int, Button> botones;
         Dictionary<int, bool> disponibilidadMesas;
-
+        SoundPlayer playSimpleSoundAbrir;
 
         public AdministracionLocal()
         {
@@ -26,7 +25,8 @@ namespace GestionBar
             InitializeComponent();           
             botones = new Dictionary<int, Button>();
             CargarMesas();
-            playSimpleSound();
+            this.playSimpleSoundAbrir = new SoundPlayer(Properties.Resources.audioPopup);
+            playSimpleSoundAbrir.Play();
 
 
         }
@@ -175,10 +175,10 @@ namespace GestionBar
         /// <summary>
         /// reproduce un sonido 
         /// </summary>
-        private void playSimpleSound()
-        {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\mkale\source\repos\PrimerParcialLabo2\GestionBar\Properties\audioPopup.wav");
-            simpleSound.Play();
-        }
+        //private void playSimpleSoundAbrir()
+        //{
+        //    SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\mkale\source\repos\PrimerParcialLabo2\GestionBar\Properties\audioPopup.wav");
+        //    simpleSound.Play();
+        //}
     }
 }
