@@ -39,3 +39,5 @@ La clase local
 métodos abstractos, métodos
 virtuales
 La clase menú es abstracta, en ella se declaran métodos abstractos implementados en bebida y comida, así como el virtual mostrar producto.
+
+actualizacion: arreglé el desfasaje que habia con el check y uncheck del estacionamiento, e implemente de forma diferente los sonidos.
