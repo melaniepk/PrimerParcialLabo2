@@ -172,13 +172,6 @@ namespace GestionBar
             frmPersonal.Show();
         }
 
-        /// <summary>
-        /// reproduce un sonido 
-        /// </summary>
-        //private void playSimpleSoundAbrir()
-        //{
-        //    SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\mkale\source\repos\PrimerParcialLabo2\GestionBar\Properties\audioPopup.wav");
-        //    simpleSound.Play();
-        //}
+        
     }
 }
